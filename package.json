@@ -1,0 +1,25 @@
+{
+  "name": "woofr",
+  "version": "1.0.0",
+  "description": "Mail delivery safety as an API",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matula/woofr.git"
+  },
+  "author": "Terry Matula",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matula/woofr/issues"
+  },
+  "homepage": "https://github.com/matula/woofr#readme",
+  "dependencies": {
+    "newman": "^3.9.3"
+  }
+}
