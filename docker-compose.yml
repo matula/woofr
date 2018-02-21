@@ -1,18 +1,13 @@
-version: '2'
-
-volumes:
-    logs:
-        driver: local
-
+version: '3'
 services:
-    slim:
-        image: php:7-alpine
-        working_dir: /var/www
-        command: php -S 0.0.0.0:8080 -t public index.php
-        environment:
-            docker: "true"
-        ports:
-            - 8080:8080
-        volumes:
-            - .:/var/www
-            - logs:/var/www/logs
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: perkdotcom/application
+    container_name: woofr-docker
+    ports:
+      - 8080:80
+      - 8081:8080
+    volumes:
+      - .:/var/www/html

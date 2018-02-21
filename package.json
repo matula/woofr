@@ -2,12 +2,11 @@
   "name": "woofr",
   "version": "1.0.0",
   "description": "Mail delivery safety as an API",
-  "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "api-test": "newman run tests/woofr.postman_collection.json"
   },
   "repository": {
     "type": "git",

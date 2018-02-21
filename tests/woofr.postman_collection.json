@@ -1,0 +1,58 @@
+{
+	"info": {
+		"name": "woofr",
+		"_postman_id": "2ad9b5a6-1b55-08a8-3c73-a14267e243b9",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:7676/addresses/1/doggos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7676/addresses/1/doggos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7676",
+					"path": [
+						"addresses",
+						"1",
+						"doggos"
+					]
+				},
+				"description": "get dogs for an address"
+			},
+			"response": []
+		}
+	]
+}
