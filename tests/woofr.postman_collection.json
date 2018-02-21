@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost/addresses/1/doggos",
+			"name": "/addresses/1/doggos",
 			"event": [
 				{
 					"listen": "test",
@@ -38,12 +38,10 @@
 					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost/addresses/1/doggos",
-					"protocol": "http",
+					"raw": "{{baseurl}}/addresses/1/doggos",
 					"host": [
-						"localhost"
+						"{{baseurl}}"
 					],
-					"port": "80",
 					"path": [
 						"addresses",
 						"1",
@@ -51,6 +49,534 @@
 					]
 				},
 				"description": "get dogs for an address"
+			},
+			"response": []
+		},
+		{
+			"name": "/addresses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/addresses",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"addresses"
+					]
+				},
+				"description": "get all addresses"
+			},
+			"response": []
+		},
+		{
+			"name": "/doggos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/doggos",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"doggos"
+					]
+				},
+				"description": "get all the dogs"
+			},
+			"response": []
+		},
+		{
+			"name": "/doggos/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/doggos/1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"doggos",
+						"1"
+					]
+				},
+				"description": "get a single dog"
+			},
+			"response": []
+		},
+		{
+			"name": "/doggos/1/address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/doggos/1/address",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"doggos",
+						"1",
+						"address"
+					]
+				},
+				"description": "get a single dog with address"
+			},
+			"response": []
+		},
+		{
+			"name": "/addresses/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/addresses/1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"addresses",
+						"1"
+					]
+				},
+				"description": "get a single address"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /addresses - no address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseurl}}/addresses",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"addresses"
+					]
+				},
+				"description": "try to post a new address without an address"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /addresses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"address\": \"77 Sunset Strip\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/addresses",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"addresses"
+					]
+				},
+				"description": "post a new address"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /addresses/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseurl}}/addresses/12",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"addresses",
+						"12"
+					]
+				},
+				"description": "delete an address"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /addresses/666 - not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eca996f8-a754-42ca-844a-6bdff395f23d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status field is set to fail\", function () {",
+							"    pm.expect(jsonData.status).to.eql(\"fail\");",
+							"});",
+							"",
+							"pm.test(\"Message field is correct\", function () {",
+							"    pm.expect(jsonData.message).to.eql(\"No address found.\");",
+							"});",
+							"",
+							"pm.test(\"Data field is null\", function () {",
+							"    pm.expect(jsonData.data).to.eql(null);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseurl}}/addresses/666",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"addresses",
+						"666"
+					]
+				},
+				"description": "delete an address that isn't found"
+			},
+			"response": []
+		},
+		{
+			"name": "/addresses/666 - not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/addresses/666",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"addresses",
+						"666"
+					]
+				},
+				"description": "get a single address, not found"
+			},
+			"response": []
+		},
+		{
+			"name": "/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d43495a2-f098-4356-9a0e-60adbdef67e9",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"var schema = {  ",
+							"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+							"    \"type\" : \"object\",",
+							"    \"properties\": {",
+							"        \"data\": { ",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"routes\": {",
+							"                    \"type\": \"array\"",
+							"                }",
+							"            }",
+							"        },",
+							"        \"message\": { ",
+							"            \"type\": \"null\" ",
+							"        },",
+							"        \"status\": { ",
+							"            \"type\": \"string\" ",
+							"        }         ",
+							"    }",
+							"}",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "get routes"
 			},
 			"response": []
 		}
