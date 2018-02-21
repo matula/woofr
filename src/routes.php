@@ -3,6 +3,22 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+$app->get('/', function (Request $request, Response $response, array $args) {
+    return $response->withJson([
+        'status'  => 'success',
+        'message' => null,
+        'data'    => [
+            'routes' => [
+                '/doggos',
+                '/doggos/{id}',
+                '/addresses',
+                '/addresses/{id}',
+                '/addresses/{id}/doggos'
+            ]
+        ],
+    ]);
+});
+
 // Routes
 $app->get('/doggos', function (Request $request, Response $response, array $args) {
     $db     = $this->db->query('SELECT * FROM doggos');
@@ -100,7 +116,16 @@ $app->get('/addresses', function (Request $request, Response $response, array $a
 
 $app->post('/addresses', function (Request $request, Response $response, array $args) {
     $parsedBody = $request->getParsedBody();
-    $db         = $this->db->prepare('INSERT INTO addresses (address) VALUES (:address)');
+    if (empty($parsedBody['address'])) {
+        return $response->withStatus(400)
+            ->withJson([
+                'status'  => 'fail',
+                'message' => 'Address is required.',
+                'data'    => null,
+            ]);
+    }
+
+    $db = $this->db->prepare('INSERT INTO addresses (address) VALUES (:address)');
     $db->bindParam(':address', $parsedBody['address']);
     $db->execute();
 
@@ -133,6 +158,30 @@ $app->get('/addresses/{id}', function (Request $request, Response $response, arr
             'address' => (string)$address['address'],
         ],
     ]);
+});
+
+$app->delete('/addresses/{id}', function (Request $request, Response $response, array $args) {
+    $db      = $this->db->query('SELECT * FROM addresses WHERE id = ' . $args['id']);
+    $address = $db->fetch();
+
+    if (empty($address)) {
+        return $response->withStatus(404)
+            ->withJson([
+                'status'  => 'fail',
+                'message' => 'No address found.',
+                'data'    => null,
+            ]);
+    }
+
+    $db = $this->db->prepare('DELETE FROM addresses WHERE id = :id');
+    $db->bindParam(':id', $address['id']);
+    $db->execute();
+
+    $db2 = $this->db->prepare('DELETE FROM address_doggo WHERE address_id = :aid');
+    $db2->bindParam(':aid', $address['id']);
+    $db2->execute();
+
+    return $response->withStatus(204);
 });
 
 $app->get('/addresses/{id}/doggos', function (Request $request, Response $response, array $args) {
@@ -187,22 +236,22 @@ $app->post('/addresses/{id}/doggos', function (Request $request, Response $respo
     }
 
     $parsedBody = $request->getParsedBody();
-    if(empty($parsedBody['name']) || empty($parsedBody['temperament'])) {
+    if (empty($parsedBody['name']) || empty($parsedBody['temperament'])) {
         return $response->withStatus(400)
             ->withJson([
                 'status'  => 'fail',
-                'message' => 'name and temperament are required',
+                'message' => 'Name and temperament are required',
                 'data'    => null,
             ]);
     }
 
-    $db         = $this->db->prepare('INSERT INTO doggos (name, temperament) VALUES (:name, :temperament)');
+    $db = $this->db->prepare('INSERT INTO doggos (name, temperament) VALUES (:name, :temperament)');
     $db->bindParam(':name', $parsedBody['name']);
     $db->bindParam(':temperament', $parsedBody['temperament']);
     $db->execute();
     $doggoId = $this->db->lastInsertId();
 
-    $db2         = $this->db->prepare('INSERT INTO address_doggo (address_id, doggo_id) VALUES (:aid, :did)');
+    $db2 = $this->db->prepare('INSERT INTO address_doggo (address_id, doggo_id) VALUES (:aid, :did)');
     $db2->bindParam(':aid', $args['id']);
     $db2->bindParam(':did', $doggoId);
     $db2->execute();

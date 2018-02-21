@@ -8,7 +8,8 @@ RUN wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/j
 RUN rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 RUN yum -y install java-1.8.0-openjdk
 RUN yum -y install jenkins
-RUN service jenkins start
+# RUN service jenkins start
+# cat /var/lib/jenkins/secrets/initialAdminPassword
 
 RUN rm /etc/nginx/conf.d/default.conf
 # some custom aliases I like

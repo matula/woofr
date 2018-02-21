@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:7676/addresses/1/doggos",
+			"name": "http://localhost/addresses/1/doggos",
 			"event": [
 				{
 					"listen": "test",
@@ -38,12 +38,12 @@
 					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:7676/addresses/1/doggos",
+					"raw": "http://localhost/addresses/1/doggos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "7676",
+					"port": "80",
 					"path": [
 						"addresses",
 						"1",
