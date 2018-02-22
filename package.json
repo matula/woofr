@@ -6,7 +6,9 @@
     "test": "tests"
   },
   "scripts": {
-    "api-test": "newman run tests/woofr.postman_collection.json -e tests/woofr-test.postman_environment.json"
+    "test:test": "newman run tests/woofr.postman_collection.json -e tests/woofr-test.postman_environment.json",
+    "test:local": "newman run tests/woofr.postman_collection.json -e tests/woofr-local.postman_environment.json",
+    "test:prod": "newman run tests/woofr.postman_collection.json -e tests/woofr-prod.postman_environment.json"
   },
   "repository": {
     "type": "git",
