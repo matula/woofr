@@ -13,8 +13,8 @@ $app->get('/', function (Request $request, Response $response, array $args) {
                 '/doggos/{id}',
                 '/addresses',
                 '/addresses/{id}',
-                '/addresses/{id}/doggos'
-            ]
+                // '/addresses/{id}/doggos',
+            ],
         ],
     ]);
 });
@@ -181,7 +181,11 @@ $app->delete('/addresses/{id}', function (Request $request, Response $response, 
     $db2->bindParam(':aid', $address['id']);
     $db2->execute();
 
-    return $response->withStatus(204);
+    return $response->withStatus(200)->withJson([
+        'status'  => 'success',
+        'message' => null,
+        'data'    => null,
+    ]);
 });
 
 $app->get('/addresses/{id}/doggos', function (Request $request, Response $response, array $args) {

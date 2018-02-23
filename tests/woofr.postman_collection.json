@@ -7,274 +7,623 @@
 	},
 	"item": [
 		{
-			"name": "/addresses/1/doggos",
+			"name": "GET requests - 200s",
+			"description": "These are all the GET requests that should return a 200 OK status",
+			"item": [
+				{
+					"name": "/  (Base Endpoint)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64383764-f5f0-44f1-a8b6-55cfca2122fe",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"var schema = {  ",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+									"    \"type\" : \"object\",",
+									"    \"properties\": {",
+									"        \"data\": { ",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"routes\": {",
+									"                    \"type\": \"array\"",
+									"                }",
+									"            }",
+									"        },",
+									"        \"message\": { ",
+									"            \"type\": \"null\" ",
+									"        }",
+									"    }",
+									"}",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Get a list of all _available_ endpoints."
+					},
+					"response": [
+						{
+							"id": "a79a27bd-efc0-41a8-a992-5089053c7ae3",
+							"name": "/",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 21 Feb 2018 22:39:04 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=2, max=100",
+									"name": "Keep-Alive",
+									"description": "Custom header"
+								},
+								{
+									"key": "Server",
+									"value": "Apache",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								}
+							],
+							"cookie": [],
+							"responseTime": 287,
+							"body": "{\"status\":\"success\",\"message\":null,\"data\":{\"routes\":[\"\\/doggos\",\"\\/doggos\\/{id}\",\"\\/addresses\",\"\\/addresses\\/{id}\",\"\\/addresses\\/{id}\\/doggos\"]}}"
+						}
+					]
+				},
+				{
+					"name": "/addresses/1/doggos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0be3d78d-6333-43cc-8eeb-252430960f8f",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/addresses/1/doggos",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"addresses",
+								"1",
+								"doggos"
+							]
+						},
+						"description": "get dogs for an address"
+					},
+					"response": [
+						{
+							"id": "c228e634-b004-45a3-b767-55bcdd31c5db",
+							"name": "/addresses/1/doggos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/addresses/1/doggos",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"addresses",
+										"1",
+										"doggos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 Feb 2018 19:19:55 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+									"name": "Expires",
+									"description": "Gives the date/time after which the response is considered stale"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+								},
+								{
+									"key": "Server",
+									"value": "nginx/1.10.2",
+									"name": "Server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.14",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Mon Jan 18 2038 21:14:07 GMT-0600 (CST)",
+									"httpOnly": false,
+									"domain": "woofr.localhost",
+									"path": "/",
+									"secure": false,
+									"value": "dmptbg6gto75pqjnun5807um00",
+									"key": "PHPSESSID"
+								}
+							],
+							"responseTime": 195,
+							"body": "{\"status\":\"success\",\"message\":null,\"data\":{\"id\":1,\"address\":\"1121 Main St\",\"doggos\":[{\"id\":5,\"name\":\"Lassie\",\"temperament\":\"helpful\"}]}}"
+						}
+					]
+				},
+				{
+					"name": "/addresses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "476396e1-af03-4293-aada-f5f81e7cfaea",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/addresses",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"addresses"
+							]
+						},
+						"description": "get all addresses"
+					},
+					"response": []
+				},
+				{
+					"name": "/doggos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "43c49266-1617-47b9-b34b-b327c7e3e8b1",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/doggos",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"doggos"
+							]
+						},
+						"description": "get all the dogs"
+					},
+					"response": [
+						{
+							"id": "b87bf4a5-2dfa-4a53-aef6-ab72a5347b15",
+							"name": "/doggos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/doggos",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"doggos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds",
+									"key": "Cache-Control",
+									"name": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate"
+								},
+								{
+									"description": "Options that are desired for the connection",
+									"key": "Connection",
+									"name": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"description": "The mime type of this content",
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"description": "The date and time that the message was sent",
+									"key": "Date",
+									"name": "Date",
+									"value": "Thu, 22 Feb 2018 18:49:18 GMT"
+								},
+								{
+									"description": "Gives the date/time after which the response is considered stale",
+									"key": "Expires",
+									"name": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+								},
+								{
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain.",
+									"key": "Pragma",
+									"name": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"description": "A name for the server",
+									"key": "Server",
+									"name": "Server",
+									"value": "nginx/1.10.2"
+								},
+								{
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity.",
+									"key": "Transfer-Encoding",
+									"name": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)",
+									"key": "X-Powered-By",
+									"name": "X-Powered-By",
+									"value": "PHP/7.1.14"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Mon Jan 18 2038 21:14:07 GMT-0600 (CST)",
+									"httpOnly": false,
+									"domain": "woofr.localhost",
+									"path": "/",
+									"secure": false,
+									"value": "dmptbg6gto75pqjnun5807um00",
+									"key": "PHPSESSID"
+								}
+							],
+							"responseTime": 150,
+							"body": "{\"status\":\"success\",\"message\":null,\"data\":[{\"id\":1,\"name\":\"Toto\",\"temperament\":\"snuggly\"},{\"id\":2,\"name\":\"Hooch\",\"temperament\":\"drooly\"},{\"id\":3,\"name\":\"Baxter\",\"temperament\":\"bitey\"},{\"id\":4,\"name\":\"Snoopy\",\"temperament\":\"barky\"},{\"id\":5,\"name\":\"Lassie\",\"temperament\":\"helpful\"},{\"id\":6,\"name\":\"Fido\",\"temperament\":\"calm\"}]}"
+						}
+					]
+				},
+				{
+					"name": "/doggos/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e520938-6c7e-415e-90ca-d377a30b2893",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/doggos/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"doggos",
+								"1"
+							]
+						},
+						"description": "get a single dog"
+					},
+					"response": []
+				},
+				{
+					"name": "/doggos/1/address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "55bb88e3-5e67-43aa-a28a-c798082ad400",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/doggos/1/address",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"doggos",
+								"1",
+								"address"
+							]
+						},
+						"description": "get a single dog with address"
+					},
+					"response": []
+				},
+				{
+					"name": "/addresses/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5bd75ec5-72c2-4f8f-aa03-2c45f667ed3a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/addresses/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"addresses",
+								"1"
+							]
+						},
+						"description": "get a single address"
+					},
+					"response": []
+				}
+			],
 			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "35fd7d9b-300f-4797-9dc9-7080de548a65",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
+						"id": "34be9761-daa4-4200-9220-3add1d156ee6",
 						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
+							"var jsonData = pm.response.json();",
 							"",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
-				},
-				"url": {
-					"raw": "{{baseurl}}/addresses/1/doggos",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						"addresses",
-						"1",
-						"doggos"
-					]
-				},
-				"description": "get dogs for an address"
-			},
-			"response": []
-		},
-		{
-			"name": "/addresses",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Status field is set to success\", function () {",
+							"    pm.expect(jsonData.status).to.eql(\"success\");",
 							"});",
 							"",
-							"",
-							""
+							"pm.test(\"Message field is set to null\", function () {",
+							"    pm.expect(jsonData.message).to.eql(null);",
+							"});"
 						]
 					}
 				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
-				},
-				"url": {
-					"raw": "{{baseurl}}/addresses",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						"addresses"
-					]
-				},
-				"description": "get all addresses"
-			},
-			"response": []
-		},
-		{
-			"name": "/doggos",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
-				},
-				"url": {
-					"raw": "{{baseurl}}/doggos",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						"doggos"
-					]
-				},
-				"description": "get all the dogs"
-			},
-			"response": []
-		},
-		{
-			"name": "/doggos/1",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
-				},
-				"url": {
-					"raw": "{{baseurl}}/doggos/1",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						"doggos",
-						"1"
-					]
-				},
-				"description": "get a single dog"
-			},
-			"response": []
-		},
-		{
-			"name": "/doggos/1/address",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
-				},
-				"url": {
-					"raw": "{{baseurl}}/doggos/1/address",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						"doggos",
-						"1",
-						"address"
-					]
-				},
-				"description": "get a single dog with address"
-			},
-			"response": []
-		},
-		{
-			"name": "/addresses/1",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "b051ffa3-caa8-4ab0-97d3-0422ece393f7",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
-				},
-				"url": {
-					"raw": "{{baseurl}}/addresses/1",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						"addresses",
-						"1"
-					]
-				},
-				"description": "get a single address"
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "POST /addresses - no address",
@@ -370,15 +719,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "cc03fad0-500b-49aa-bb56-e4e5936c1b3c",
+						"id": "b1497d2d-4870-440a-959d-f6c1f57aba70",
 						"type": "text/javascript",
 						"exec": [
-							"pm.test(\"Status code is 204\", function () {",
-							"    pm.response.to.have.status(204);",
-							"});",
-							"",
-							"",
-							""
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
 						]
 					}
 				}
@@ -407,7 +753,96 @@
 				},
 				"description": "delete an address"
 			},
-			"response": []
+			"response": [
+				{
+					"id": "f83478d2-5034-4232-9dcf-598c61820631",
+					"name": "DELETE /addresses/12 - 204",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseurl}}/addresses/12",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"addresses",
+								"12"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 22 Feb 2018 18:50:13 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.10.2",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.14",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 21:14:07 GMT-0600 (CST)",
+							"httpOnly": false,
+							"domain": "woofr.localhost",
+							"path": "/",
+							"secure": false,
+							"value": "dmptbg6gto75pqjnun5807um00",
+							"key": "PHPSESSID"
+						}
+					],
+					"responseTime": 168,
+					"body": ""
+				}
+			]
 		},
 		{
 			"name": "DELETE /addresses/666 - not found",
@@ -509,76 +944,150 @@
 				},
 				"description": "get a single address, not found"
 			},
-			"response": []
+			"response": [
+				{
+					"id": "edab567b-ec43-46aa-b09a-a34f7ba25b6b",
+					"name": "/addresses/666 - not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/addresses/666",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"addresses",
+								"666"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 22 Feb 2018 18:48:36 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "nginx/1.10.2",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.14",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Mon Jan 18 2038 21:14:07 GMT-0600 (CST)",
+							"httpOnly": false,
+							"domain": "woofr.localhost",
+							"path": "/",
+							"secure": false,
+							"value": "dmptbg6gto75pqjnun5807um00",
+							"key": "PHPSESSID"
+						}
+					],
+					"responseTime": 160,
+					"body": "{\"status\":\"fail\",\"message\":\"No address found.\",\"data\":null}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "abe99040-eda1-4308-9f06-f094b33fda99",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		},
 		{
-			"name": "/",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d43495a2-f098-4356-9a0e-60adbdef67e9",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"",
-							"var schema = {  ",
-							"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
-							"    \"type\" : \"object\",",
-							"    \"properties\": {",
-							"        \"data\": { ",
-							"            \"type\": \"object\",",
-							"            \"properties\": {",
-							"                \"routes\": {",
-							"                    \"type\": \"array\"",
-							"                }",
-							"            }",
-							"        },",
-							"        \"message\": { ",
-							"            \"type\": \"null\" ",
-							"        },",
-							"        \"status\": { ",
-							"            \"type\": \"string\" ",
-							"        }         ",
-							"    }",
-							"}",
-							"",
-							"var jsonData = pm.response.json();",
-							"",
-							"pm.test('Schema is valid', function() {",
-							"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Fido\",\n\t\"temperament\": \"calm\"\n}"
-				},
-				"url": {
-					"raw": "{{baseurl}}/",
-					"host": [
-						"{{baseurl}}"
-					],
-					"path": [
-						""
-					]
-				},
-				"description": "get routes"
-			},
-			"response": []
+			"listen": "test",
+			"script": {
+				"id": "cbda2ae0-4186-465a-879a-047656041c9f",
+				"type": "text/javascript",
+				"exec": [
+					"var schema = {  ",
+					"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+					"    \"type\" : \"object\",",
+					"    \"properties\": {",
+					"        \"data\": { ",
+					"            \"type\": [\"object\", \"null\", \"array\"]",
+					"        },",
+					"        \"message\": { ",
+					"            \"type\": [\"null\", \"string\"]",
+					"        },",
+					"        \"status\": { ",
+					"            \"type\": \"string\" ",
+					"        }         ",
+					"    }",
+					"}",
+					"",
+					"var jsonData = pm.response.json();",
+					"",
+					"pm.test('General Schema is valid', function() {",
+					"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+					"});"
+				]
+			}
 		}
 	]
 }
